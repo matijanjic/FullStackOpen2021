@@ -1,5 +1,36 @@
 import React, { useState } from 'react'
 
+const Button = ({onClick, text}) => <button onClick={onClick}>{text}</button>
+
+const Anecdote = ({anecdotes, selected, votes}) => {
+  return (
+    <>
+      <h1>Anecdote of the day</h1>
+      {anecdotes[selected]}
+      <div>has {votes[selected]} votes.</div>
+    </>
+  )
+}
+
+const AnecdoteWinner = ({anecdotes, votes}) => {
+  const winnerIndex = votes.indexOf(Math.max(...votes))
+  if (votes[winnerIndex] === 0) {
+    return (
+      <>
+      <h1>Anecdote with the most votes</h1>
+      <div>There are no votes yet.</div>
+      </>
+    )
+  }
+  return (
+    <>
+    <h1>Anecdote with the most votes</h1>
+    <div>{anecdotes[winnerIndex]}</div>
+    <div>has {votes[winnerIndex]} votes.</div>
+    </>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often',
@@ -10,51 +41,27 @@ const App = () => {
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
   ]
-
-  
    
   const [selected, setSelected] = useState(0)
   const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
-  const [maxVotes, setMaxVotes] = useState(0)
 
-  console.log(maxVotes)
-
-  const randSelect = () => {
+  const handleAnecdoteClick = () => {
     setSelected(Math.floor(Math.random() * anecdotes.length))
   }
 
-  const incVote = () => {
+  const handleVoteClick = () => {
     const votesCopy = [...votes]
     votesCopy[selected] += 1
     setVotes(votesCopy)
-    checkMax()
-  }
-  
-  const checkMax = () => {
-    let max = votes[0]
-    let index = 0
     
-      for(var i = 0; i < votes.length; i++) {
-        if (votes[i] > max) {
-          console.log(index)
-          index = i
-          max = votes[i]
-        }
-        
-      }
-      setMaxVotes(index) 
   }
 
   return (
     <div>
-      <div><h1>Anecdote of the day</h1></div>
-      {anecdotes[selected]}
-      <div>has {votes[selected]} votes.</div>
-      <div><button onClick={incVote}>vote</button></div>
-      <div><button onClick={randSelect}>next anecdote</button></div>
-      <div><h1>Anecdote with the most votes</h1></div>
-      <div>{anecdotes[maxVotes]}</div> 
-      <div>has {votes[maxVotes]} votes</div>
+      <Anecdote anecdotes={anecdotes} selected={selected} votes={votes}/>
+      <Button onClick={handleVoteClick} text='vote'/>
+      <Button onClick={handleAnecdoteClick} text='next anecdote'/>
+      <AnecdoteWinner anecdotes={anecdotes} votes={votes}/>
     </div>
   )
 }
