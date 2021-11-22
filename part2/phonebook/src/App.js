@@ -3,6 +3,8 @@ import Filter from './components/Filter'
 import AddPerson from './components/AddPerson'
 import Numbers from './components/Numbers'
 import phonebookServices from './services/phonebookServices'
+import Notification from './components/Notification'
+import Error from './components/Error'
 
 //npm install json-server --save-dev
 //"server": "json-server -p3001 --watch db.json"
@@ -13,6 +15,8 @@ const App = () => {
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ search, setSearch ] = useState('')
+  const [ notification, setNotification] = useState(null)
+  const [ errorMessage, setErrorMessage] = useState(null)
 
   const hook = () => {
     phonebookServices
@@ -36,11 +40,22 @@ const App = () => {
       const confirmation = window.confirm(`${newPerson.name} is already added to the phonebook, replace the old number with a new one?`)
       if (confirmation) {
         const idToUpdate = persons.find(person => person.name === newPerson.name).id
-        console.log(idToUpdate)
+        setNotification(`updated ${newName} with new number ${newNumber}`)
+        setTimeout(() => {
+          setNotification(null)
+        },5000)
+        
         phonebookServices
           .update(idToUpdate,newPerson)
           .then(returnedPerson=> {
             setPersons(persons.map(person => person.id !== idToUpdate ? person : returnedPerson))
+          })
+          .catch(error => {
+            setNotification(null)
+            setErrorMessage(`person ${newPerson.name} was already deleted.`)
+            setTimeout(() => {  
+              setErrorMessage(null)
+            },5000)
           })
         
       }
@@ -73,6 +88,8 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={notification}/>
+      <Error message={errorMessage}/>
       <Filter handleSearchChange={handleSearchChange}/>
       <h2>Add new</h2>
       <AddPerson addPerson={addPerson} newName={newName} newNumber={newNumber} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
