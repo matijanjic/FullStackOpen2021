@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon index.js",
-    "start": "NODE_ENV=production node index.js",
-    "lint": "eslint .",
-    "test": "NODE_ENV=test jest --verbose "
+    "test": "NODE_ENV=test jest --verbose ",
+    "start:test": "NODE_ENV=test nodemon index.js"
+    
   },
   "author": "Matija J.",
   "license": "ISC",
