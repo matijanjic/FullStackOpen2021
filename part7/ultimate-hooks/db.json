@@ -1,0 +1,102 @@
+{
+  "notes": [
+    {
+      "content": "custom-hooks are grat",
+      "id": 1
+    },
+    {
+      "content": "the best featrure ever <3",
+      "id": 2
+    },
+    {
+      "content": "ewe1",
+      "id": 3
+    },
+    {
+      "content": "eqweq",
+      "id": 4
+    }
+  ],
+  "persons": [
+    {
+      "name": "mluukkai",
+      "number": "040-5483923",
+      "id": 1
+    },
+    {
+      "name": "kaltsoon",
+      "number": "045-2323456",
+      "id": 2
+    },
+    {
+      "name": "Matija",
+      "number": "132132",
+      "id": 3
+    },
+    {
+      "name": "dada",
+      "number": "dada",
+      "id": 4
+    },
+    {
+      "name": "dada",
+      "number": "daad",
+      "id": 5
+    },
+    {
+      "name": "dada",
+      "number": "dwdw",
+      "id": 6
+    },
+    {
+      "name": "dada",
+      "number": "dwdw",
+      "id": 7
+    },
+    {
+      "name": "dada",
+      "number": "eq",
+      "id": 8
+    },
+    {
+      "name": "dad",
+      "number": "dada",
+      "id": 9
+    },
+    {
+      "name": "dada",
+      "number": "dwew",
+      "id": 10
+    },
+    {
+      "name": "ewe",
+      "number": "e21",
+      "id": 11
+    },
+    {
+      "name": "ee21",
+      "number": "21e",
+      "id": 12
+    },
+    {
+      "name": "q2e",
+      "number": "213132",
+      "id": 13
+    },
+    {
+      "name": "eweq",
+      "number": "ew11",
+      "id": 14
+    },
+    {
+      "name": "ewqe",
+      "number": "dwq",
+      "id": 15
+    },
+    {
+      "name": "123",
+      "number": "123",
+      "id": 16
+    }
+  ]
+}
