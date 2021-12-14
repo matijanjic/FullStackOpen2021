@@ -1,0 +1,9 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hdGlqYWphbmppYyIsImlkIjoiNjFhNzhiOWI0YmI1NjM3YWY4MjA1YmU2IiwiaWF0IjoxNjM4MzcwNDk3fQ.yA317g0JD_lyYuJi-L_UmAmcmzAq_idN6WwBtC8Fq-k
+
+{
+    "title": "test with authorization",
+    "author": "Matija",
+    "url": "url"
+  }
