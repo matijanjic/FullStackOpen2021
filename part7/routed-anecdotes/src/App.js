@@ -90,10 +90,7 @@ const CreateNew = (props) => {
       votes: 0
     })
     history.push('/')
-
   }
-
-
 
   return (
     <div>

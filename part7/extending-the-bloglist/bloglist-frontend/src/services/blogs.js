@@ -17,13 +17,13 @@ const update = async (updatedBlog) => {
   return response.data
 }
 
-const remove = async (blogToDelete) => {
+const remove = async (id) => {
   const config = {
     headers: { Authorization: token }
   }
   console.log(config)
 
-  const response = await axios.delete(`${baseUrl}/${blogToDelete.id}`, config)
+  const response = await axios.delete(`${baseUrl}/${id}`, config)
   return response.data
 }
 

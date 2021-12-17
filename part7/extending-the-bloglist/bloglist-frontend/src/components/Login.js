@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setUser } from '../reducers/loginReducer'
 
-const Login = ({ logIn }) => {
+const Login = () => {
 
   const[username, setUsername] = useState('')
   const[password, setPassword] = useState('')
+
+  const dispatch = useDispatch()
 
   const handleLogin = (event) => {
     event.preventDefault()
@@ -12,14 +16,15 @@ const Login = ({ logIn }) => {
       password: password
     }
 
-    logIn(user)
+    dispatch(setUser(user))
     setUsername('')
     setPassword('')
   }
 
+
   return(
     <div>
-      <h1>log in to application</h1>
+      <h2>log in to application</h2>
       <form id='login-form' onSubmit={handleLogin}>
         <div>
           username
@@ -46,5 +51,6 @@ const Login = ({ logIn }) => {
     </div>
   )
 }
+
 
 export default Login
