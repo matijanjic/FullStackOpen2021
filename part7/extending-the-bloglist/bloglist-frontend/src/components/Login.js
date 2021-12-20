@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../reducers/loginReducer'
+import { Form, Button, Container } from 'react-bootstrap'
 
 const Login = () => {
 
@@ -23,31 +24,31 @@ const Login = () => {
 
 
   return(
-    <div>
-      <h2>log in to application</h2>
-      <form id='login-form' onSubmit={handleLogin}>
-        <div>
-          username
-          <input
-            id='username'
-            type='text'
-            value={username}
-            name='username'
-            onChange={({ target }) => setUsername(target.value)}
-          />
-        </div>
-        <div>
-          password
-          <input
-            id='password'
-            type='password'
-            value={password}
-            name='password'
-            onChange={({ target }) => setPassword(target.value)}
-          />
-        </div>
-        <button id='login-button' type='submit'>login</button>
-      </form>
+    <div className='mt-4'>
+      <Container className='w-25'>
+        <h2>log in</h2>
+        <Form id='login-form' onSubmit={handleLogin}>
+          <Form.Group>
+            <Form.Label>username:</Form.Label>
+            <Form.Control
+              id='username'
+              type='text'
+              value={username}
+              name='username'
+              onChange={({ target }) => setUsername(target.value)}
+            />
+            <Form.Label>password:</Form.Label>
+            <Form.Control
+              id='password'
+              type='password'
+              value={password}
+              name='password'
+              onChange={({ target }) => setPassword(target.value)}
+            />
+            <Button variant='primary' className='mt-2' id='login-button' type='submit'>login</Button>
+          </Form.Group>
+        </Form>
+      </Container>
     </div>
   )
 }

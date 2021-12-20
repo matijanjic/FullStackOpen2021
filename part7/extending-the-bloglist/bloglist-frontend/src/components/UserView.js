@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { ListGroup } from 'react-bootstrap'
 
 const UserView = ({ userID }) => {
 
@@ -14,14 +15,14 @@ const UserView = ({ userID }) => {
   } else {
     return(
       <div>
-        <h2>{user.name}</h2>
-        <h4>Added blogs</h4>
-        <ul>
+        <h2 className='mt-4'>User {user.name}</h2>
+        <h4 className='mt-4 mb-4'>Added blogs</h4>
+        <ListGroup className='w-50' variant='flush'>
           {user.blogs.map(blog =>
-            <li key={blog.id}>
+            <ListGroup.Item key={blog.id}>
               {blog.title}
-            </li>)}
-        </ul>
+            </ListGroup.Item>)}
+        </ListGroup>
       </div>
     )
   }

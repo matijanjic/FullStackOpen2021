@@ -4,6 +4,7 @@ import Toggleable from './Toggleable'
 import { setNotification } from '../reducers/notificationReducer'
 import { addBlog } from '../reducers/blogReducer'
 import { useField } from '../hooks'
+import { Form, Button } from 'react-bootstrap'
 
 const CreateBlog = () => {
 
@@ -38,22 +39,19 @@ const CreateBlog = () => {
   return(
     <Toggleable buttonLabel='create new blog' ref={blogFormRef}>
       <div>
-        <h1>Create new</h1>
-        <form onSubmit={handleBlogCreation} className='blogForm'>
-          <div>
-          title:
-            <input {...title.properties}/>
-          </div>
-          <div>
-          author:
-            <input { ...author.properties }/>
-          </div>
-          <div>
-          url:
-            <input { ...url.properties }/>
-          </div>
-          <button id='submit-blog' type='submit'>create</button>
-        </form>
+        <h2 className='mt-4'>Add a new blog</h2>
+        <Form onSubmit={handleBlogCreation} className='blogForm w-25'>
+          <Form.Group>
+            <Form.Label>title:</Form.Label>
+            <Form.Control {...title.properties } />
+            <Form.Label>author:</Form.Label>
+            <Form.Control {...author.properties } />
+            <Form.Label>url:</Form.Label>
+            <Form.Control {...url.properties } />
+          </Form.Group>
+
+          <Button id='submit-blog' type='submit' className='mt-4'>create</Button>
+        </Form>
       </div>
     </Toggleable>
   )

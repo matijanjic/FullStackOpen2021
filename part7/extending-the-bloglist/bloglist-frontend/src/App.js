@@ -46,15 +46,11 @@ const App = () => {
   const blogIDMatch = useRouteMatch('/blogs/:id')
 
   return (
-    <div>
+    <div className='container'>
 
+
+      { user ? <NavBar /> : <Login />}
       <Notification />
-      <div>
-        { user ? <NavBar /> : <Login />}
-      </div>
-      <div>
-        <h3>Blog app</h3>
-      </div>
       <Switch>
         <Route path='/users/:id'>
           <UserView userID={userIDMatch ? userIDMatch.params.id : null} />
@@ -68,8 +64,8 @@ const App = () => {
         <Route path='/'>
           {user === null
             ? null
-            : <div>
-              <BlogList />
+            : <div className='mt-4'>
+              <BlogList/>
               <CreateBlog />
             </div>
           }
