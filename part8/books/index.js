@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 
 const JWT_SECRET = 'tajnistring'
 
-const MONGODB_URI = 'mongodb+srv://fullstack:fullstackopen@cluster0.tosik.mongodb.net/library?retryWrites=true&w=majority'
+const MONGODB_URI = 'mongodb+srv://fullstack:secretpassword@cluster0.tosik.mongodb.net/library?retryWrites=true&w=majority'
 
 console.log('connecting to ', MONGODB_URI)
 
